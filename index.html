@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uplyme Filling Station & Stores | Petrol, Shop & Post Office</title>
+    <style>
+        :root {
+            --primary: #8fce00; /* Esso / Classic Petrol Deep Blue */
+            --accent: #d62328; /* Post Office Red */
+            --dark: #222222;
+            --light: #f8f9fa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--dark); background-color: #ffffff; line-height: 1.6; }
+        
+        /* Header & Navigation */
+        header { background: var(--primary); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.5px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; font-size: 14px; transition: color 0.3s; }
+        nav a:hover { color: #ffcc00; }
+
+      /* Hero Section */
+	.hero { 
+    /* The image is now 100% bright with no dark tint on top */
+    background: url('hero-bg.jpg') center/cover no-repeat; 
+    text-align: center; 
+    padding: 120px 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* This creates the stylish white overlay box container */
+.hero-box {
+    background: rgba(255, 255, 255, 0.95); /* Crisp white with a tiny hint of transparency */
+    padding: 40px 30px;
+    border-radius: 12px;
+    max-width: 650px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft drop shadow to make it pop */
+}
+
+.hero-box h2 { 
+    font-size: 36px; 
+    margin-bottom: 15px; 
+    color: var(--primary); /* Uses your primary blue for the main title */
+}
+
+.hero-box p { 
+    font-size: 17px; 
+    margin: 0 auto 30px; 
+    color: #444444; /* Dark text for perfect readability */
+    line-height: 1.6;
+}
+
+
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: transform 0.2s, background 0.3s; }
+        .btn:hover { background: #b01a1e; transform: translateY(-2px); }
+
+        /* Quick Info Bar */
+        .info-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; background: var(--light); padding: 30px 5%; text-align: center; border-bottom: 1px solid #e0e0e0; }
+        .info-box h3 { color: var(--primary); font-size: 16px; text-transform: uppercase; margin-bottom: 8px; }
+        .info-box p { font-size: 15px; color: #555; }
+
+        /* Services Grid */
+        .services { padding: 80px 5%; text-align: center; }
+        .services h2 { font-size: 32px; margin-bottom: 40px; color: var(--primary); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 40px 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); transition: translateY 0.3s; }
+        .card.po { border-top-color: var(--accent); }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { font-size: 22px; margin-bottom: 15px; }
+        .card ul { list-style: none; text-align: left; margin-top: 15px; }
+        .card ul li { margin-bottom: 10px; color: #555; font-size: 15px; }
+        .card ul li::before { content: "✓ "; color: green; font-weight: bold; }
+
+        /* Reviews Section */
+        .reviews-section { background: var(--light); padding: 80px 5%; text-align: center; }
+        .reviews-section h2 { font-size: 32px; margin-bottom: 40px; color: var(--primary); }
+        .reviews-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .review-card { background: white; padding: 25px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: left; }
+        .stars { color: #ffcc00; margin-bottom: 10px; font-size: 18px; }
+        .review-text { font-style: italic; color: #444; font-size: 14.5px; margin-bottom: 15px; }
+        .reviewer { font-weight: bold; font-size: 13px; color: #777; }
+
+        /* Footer */
+        footer { background: #111; color: white; text-align: center; padding: 40px 20px; font-size: 14px; }
+        footer p { opacity: 0.7; margin-bottom: 10px; }
+        footer a { color: #ffcc00; text-decoration: none; }
+
+/* Container framework around the interactive map */
+.map-section {
+    padding: 40px 5%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+/* Beautiful framed canvas wrapper */
+.map-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden; /* Ensures the sharp frame corners wrap perfectly */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e2e8f0;
+}
+
+/* Forces the active iframe map content to fill the canvas cleanly */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; padding: 15px; }
+            nav { margin-top: 15px; }
+            nav a { margin: 0 10px; }
+            .hero h2 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">
+            <h1>Uplyme Stores - Village Shop, Petrol Station & Post Office</h1>
+
+        </div>
+        <nav>
+            <a href="#services">Our Services</a>
+            <a href="#hours">Opening Times</a>
+            <a href="#reviews">Customer Reviews</a>
+            <a href="tel:+441297444662">Call Now</a>
+        </nav>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section class="hero">
+        
+        
+        <a href="https://maps.app.goo.gl/ZhZ67wJg7T12iDhy9" target="_blank" class="btn">Get Driving Directions</a>
+    </section>
+
+    <!-- Quick Business Details -->
+    <section class="info-bar" id="hours">
+        <div class="info-box">
+            <h3>📍 Find Us</h3>
+            <p>Lyme Rd, Uplyme,<br>Lyme Regis, DT7 3UY</p>
+        </div>
+        <div class="info-box">
+            <h3>⏰ Opening Hours</h3>
+            <p>Mon - Fri: 7:00 AM - 8:00 PM<br>Sat: 7:30 AM - 8:00 PM<br>Sun: 7:30 AM - 1:30 AM</p>
+        </div>
+        <div class="info-box">
+            <h3>📞 Get In Touch</h3>
+            <p>Phone: 01297 444662<br>Email: info@uplymestores.co.uk</p>
+        </div>
+    </section>
+
+<!-- Interactive Map Section -->
+<section class="map-section">
+    <div class="map-container">
+        <!-- Official secure embed link for Uplyme Stores -->
+        <iframe 
+            src="https://google.com" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+<!-- Interactive Map Section -->
+<section class="map-section">
+    <div class="map-container">
+        <!-- Official secure embed link for Uplyme Stores -->
+        <iframe 
+            src="https://google.com" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+
+
+
+    <!-- Business Divisions -->
+    <section class="services" id="services">
+        <h2>Everything You Need In One Stop</h2>
+        <div class="grid">
+            
+            <!-- Petrol Station Column -->
+            <div class="card">
+                <h3>⛽ Esso Forecourt</h3>
+                <p>Top-tier fuel to keep your vehicle moving cleanly and efficiently.</p>
+                <ul>
+                    <li>Unleaded & Diesel pumps</li>
+                    <li>On-site Car Wash facilities</li>
+                    <li>Air pump for tyre safety</li>
+                    <li>Propane & Calor Gas exchange</li>
+                </ul>
+            </div>
+
+            <!-- Convenience Store Column -->
+            <div class="card">
+                <h3>🛒 Convenience Shop</h3>
+                <p>Stocked with daily absolute essentials alongside premium local UK treats.</p>
+                <ul>
+                    <li>Fresh bread from Charmouth Bakery</li>
+                    <li>Moores Biscuits & fresh farm produce</li>
+                    <li>Local craft beers from Lyme Regis Brewery</li>
+                    <li>Fully licensed Off-Licence & snacks</li>
+                </ul>
+            </div>
+
+            <!-- Post Office Column -->
+            <div class="card po">
+                <h3>📮 Post Office Counter</h3>
+                <p>Skip the town-centre queues and sort your mailing or cash withdrawals locally.</p>
+                <ul>
+                    <li>Standard letter & parcel drop-off</li>
+                    <li>Over-the-counter cash banking withdrawal</li>
+                    <li>Bill payments & postal operations</li>
+                    <li>Friendly local counter assistance</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Google Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <h2>What the Community Says</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"A gem of a shop... little of everything, including post office and fuel."</p>
+                <p class="reviewer">— Local Reviewer via Google Maps</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Good prices for small garage and the shop inside sells so much stuff."</p>
+                <p class="reviewer">— Local Customer via Google Maps</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Friendly place and well stocked. Great customer service."</p>
+                <p class="reviewer">— Local Resident via Google Maps</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Uplyme Filling Station & Stores. All rights reserved.</p>
+        <p>Data sourced securely via official public <a href="https://google.com" target="_blank">Google Maps Profile</a> records.</p>
+    </footer>
+
+</body>
+</html>
