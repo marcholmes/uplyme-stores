@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST PAGE: Local Fuel Price Comparison Tracker</title>
+    <style>
+        :root {
+            --primary: #002f6c; /* Classic Esso Deep Blue */
+            --accent: #d62328;  /* Post Office Red */
+            --dark: #222222;
+            --light: #f8f9fa;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { color: var(--dark); background-color: #f1f5f9; line-height: 1.6; padding-bottom: 60px; }
+        
+        /* Testing Alert Ribbon */
+        .test-ribbon { background: #e11d48; color: white; text-align: center; padding: 8px 10px; font-size: 13px; font-weight: bold; letter-spacing: 0.5px; }
+        
+        /* Navigation Header */
+        header { background: var(--primary); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo h1 { font-size: 20px; font-weight: 700; }
+        .back-link { color: #ffcc00; text-decoration: none; font-weight: 600; font-size: 14px; }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Price Comparison Card Framework */
+        .price-comparison-section { padding: 60px 5%; display: flex; justify-content: center; }
+        .comparison-card { background: #ffffff; width: 100%; max-width: 800px; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+        .comparison-card h3 { color: var(--primary); font-size: 26px; margin-bottom: 8px; text-align: center; }
+        .comparison-subtitle { font-size: 15px; color: #64748b; text-align: center; margin-bottom: 30px; }
+        .table-wrapper { overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 8px; }
+        
+        /* Table Elements */
+        .price-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; min-width: 500px; }
+        .price-table th { background-color: #f8fafc; color: #334155; padding: 14px 18px; font-weight: 700; border-bottom: 2px solid #e2e8f0; }
+        .price-table td { padding: 14px 18px; border-bottom: 1px solid #e2e8f0; color: #475569; }
+        .price-table tr:last-child td { border-bottom: none; }
+        
+        /* Visual Row Highlighting for Uplyme */
+        .price-table tr.highlight-row { background-color: rgba(0, 47, 108, 0.06); }
+        .price-table tr.highlight-row td { color: var(--primary); font-size: 16px; }
+        .table-footnote { font-size: 13px; color: #64748b; text-align: center; margin-top: 25px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <!-- Environment Notice -->
+    <div class="test-ribbon">🛠️ LIVE DEVELOPMENT PREVIEW PAGE — INTERNAL TESTING</div>
+
+    <!-- Layout Header Context -->
+    <header>
+        <div class="logo"><h1>Uplyme Stores</h1></div>
+        <a href="index.html" class="back-link">← Return to Homepage</a>
+    </header>
+
+    <!-- Content Module -->
+    <section class="price-comparison-section">
+        <div class="comparison-card">
+            <h3>📊 Local Fuel Price Tracker</h3>
+            <p class="comparison-subtitle">Cross-referencing regional retail metrics across the East Devon and Dorset borders.</p>
+            
+            <div class="table-wrapper">
+                <table class="price-table">
+                    <thead>
+                        <tr>
+                            <th>Station / Location</th>
+                            <th>Unleaded (E10)</th>
+                            <th>Standard Diesel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="highlight-row">
+                            <td><strong>📍 Uplyme Stores & Filling Station</strong></td>
+                            <td><strong>163.9p</strong></td>
+                            <td><strong>179.9p</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Tesco (Shand Park, Axminster)</td>
+                            <td>161.9p</td>
+                            <td>178.9p</td>
+                        </tr>
+                        <tr>
+                            <td>TotalEnergies (Prospect, Axminster)</td>
+                            <td>161.9p</td>
+                            <td>178.9p</td>
+                        </tr>
+                        <tr>
+                            <td>Texaco (MFG Kilmington Cross)</td>
+                            <td>161.9p</td>
+                            <td>179.9p</td>
+                        </tr>
+                        <tr>
+                            <td>Esso (Tower Services, Seaton)</td>
+                            <td>156.9p</td>
+                            <td>177.9p</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="table-footnote">💡 Prices are updated for testing display verification. Layout is optimized for phone viewports.</p>
+        </div>
+    </section>
+
+</body>
+</html>
