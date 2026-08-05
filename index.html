@@ -1,27 +1,17 @@
----
-// src/pages/index.astro
-const pageTitle = "Uplyme Stores | Shop, Post Office & Filling Station";
-const currentYear = new Date().getFullYear();
-
-// Centralized store data for easy updates
-const storeHours = [
-  { days: "Mon - Fri", hours: "07:00 - 20:00" },
-  { days: "Saturday", hours: "07:30 - 20:00" },
-  { days: "Sunday", hours: "07:00 - 19:00" }
-];
----
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{pageTitle}</title>
+    <title>Uplyme Stores | Shop, Post Office & Filling Station</title>
     <meta name="description" content="Your local village hub in Uplyme, Lyme Regis. Fresh local food, Post Office services, and Esso Filling Station." />
+
+    <!-- Tailwind CSS CDN (Restores all styling instantly) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DNGNTSL9X"></script>
-    <script is:inline>
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -94,27 +84,31 @@ const storeHours = [
                 <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
                     <h4 class="font-bold mb-3 text-amber-400 text-lg">Store Opening Hours:</h4>
                     <ul class="space-y-1 text-emerald-50">
-                        {storeHours.map((item) => (
-                            <li class="flex justify-between border-b border-white/10 py-1">
-                                <span>{item.days}</span>
-                                <strong>{item.hours}</strong>
-                            </li>
-                        ))}
+                        <li class="flex justify-between border-b border-white/10 py-1">
+                            <span>Mon - Fri</span>
+                            <strong>07:00 - 20:00</strong>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 py-1">
+                            <span>Saturday</span>
+                            <strong>07:30 - 20:00</strong>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 py-1">
+                            <span>Sunday</span>
+                            <strong>07:00 - 19:00</strong>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="bg-emerald-900/50 rounded-lg overflow-hidden min-h-[300px] shadow-inner relative">
-                <div class="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                    <p class="font-semibold mb-2">Uplyme Stores & Filling Station</p>
-                    <p class="text-sm text-emerald-200">Located on Lyme Road just outside Lyme Regis</p>
-                </div>
+            <div class="bg-emerald-900/50 rounded-lg overflow-hidden min-h-[300px] shadow-inner relative flex flex-col items-center justify-center p-4 text-center">
+                <p class="font-semibold mb-2">Uplyme Stores & Filling Station</p>
+                <p class="text-sm text-emerald-200">Located on Lyme Road just outside Lyme Regis</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200">
-        &copy; {currentYear} Uplyme Stores & Filling Station. All rights reserved.
+        &copy; 2026 Uplyme Stores & Filling Station. All rights reserved.
     </footer>
 
 </body>
