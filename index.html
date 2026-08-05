@@ -1,114 +1,80 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uplyme Stores | Shop, Post Office & Filling Station</title>
-    <meta name="description" content="Your local village hub in Uplyme, Lyme Regis. Fresh local food, Post Office services, and Esso Filling Station." />
-
-    <!-- Tailwind CSS CDN (Restores all styling instantly) -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DNGNTSL9X"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-5DNGNTSL9X');
-    </script>
+    <style>
+        :root { --brand-green: #2d5a27; --brand-gold: #f4b400; }
+        .bg-brand { background-color: var(--brand-green); }
+        .text-brand { color: var(--brand-green); }
+    </style>
 </head>
-<body class="bg-gray-50 font-sans text-gray-900">
+<body class="bg-gray-50 font-sans">
 
-    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="text-2xl font-bold text-emerald-800 italic">Uplyme Stores</div>
+            <div class="text-2xl font-bold text-brand italic">Uplyme Stores</div>
             <div class="hidden md:flex space-x-6 font-medium text-gray-700">
-                <a href="#store" class="hover:text-emerald-700 transition">The Store</a>
-                <a href="#postoffice" class="hover:text-emerald-700 transition">Post Office</a>
-                <a href="#fuels" class="hover:text-emerald-700 transition">Filling Station</a>
-                <a href="#contact" class="hover:text-emerald-700 transition">Contact</a>
+                <a href="#store" class="hover:text-green-700">The Store</a>
+                <a href="#postoffice" class="hover:text-green-700">Post Office</a>
+                <a href="#fuels" class="hover:text-green-700">Filling Station</a>
+                <a href="#contact" class="hover:text-green-700">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative h-[500px] flex items-center justify-center text-white text-center bg-gray-900">
-        <div class="absolute inset-0 opacity-40 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1534452285072-8e503e07a511?auto=format&fit=crop&w=1500');"></div>
+    <header class="relative h-[500px] flex items-center justify-center text-white text-center">
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534452285072-8e503e07a511?auto=format&fit=crop&w=1500')] bg-cover bg-center"></div>
         <div class="relative z-10 px-4">
-            <h1 class="text-5xl font-extrabold mb-4 tracking-tight">Your Local Village Hub</h1>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Uplyme's friendly stop for Fresh Local Produce, Post Office services, and Esso Fuel.</p>
-            <a href="#contact" class="bg-amber-500 hover:bg-amber-600 text-black font-bold py-3 px-8 rounded-full transition inline-block shadow-lg">Find Us Today</a>
+            <h1 class="text-5xl font-extrabold mb-4">Your Local Village Hub</h1>
+            <p class="text-xl mb-8">Uplyme's friendly stop for Fresh Food, Post Office services, and Esso Fuel.</p>
+            <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition">Find Us Today</a>
         </div>
     </header>
 
-    <!-- Services Grid -->
-    <main class="max-w-6xl mx-auto py-16 px-4 grid md:grid-cols-3 gap-8">
-        <section id="store" class="p-6 bg-white rounded-xl shadow-sm border-t-4 border-emerald-700 flex flex-col justify-between">
-            <div>
-                <h3 class="text-2xl font-bold mb-3 text-emerald-800">The Store</h3>
-                <p class="text-gray-600 mb-4">Local meats, Charmouth Bakery bread, Moores Biscuits, and Lyme Regis Brewery ales. We proudly support local West Country producers!</p>
-            </div>
-            <span class="text-sm font-semibold text-emerald-800 bg-emerald-50 py-1 px-3 rounded-full self-start">Local Produce & Groceries</span>
-        </section>
+    <section class="max-w-6xl mx-auto py-16 px-4 grid md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 bg-white rounded-xl shadow-sm border-t-4 border-green-700">
+            <h3 class="text-2xl font-bold mb-3 text-brand">The Store</h3>
+            <p class="text-gray-600 mb-4">Local meats, Charmouth Bakery bread, and fresh fruit & veg. We support local producers!</p>
+            <span class="text-sm font-semibold text-green-800">Local Produce & Groceries</span>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-sm border-t-4 border-red-600">
+            <h3 class="text-2xl font-bold mb-3 text-red-600">Post Office</h3>
+            <p class="text-gray-600 mb-4">Free cash withdrawals, parcel drop-offs, and banking for all major high-street banks.</p>
+            <span class="text-sm font-semibold text-red-800">Open Mon-Sat</span>
+        </div>
+        <div class="p-6 bg-white rounded-xl shadow-sm border-t-4 border-blue-600">
+            <h3 class="text-2xl font-bold mb-3 text-blue-600">Filling Station</h3>
+            <p class="text-gray-600 mb-4">Quality Esso Synergy fuels, Calor Gas cylinders, and everyday car essentials.</p>
+            <span class="text-sm font-semibold text-blue-800">7am - 8pm Daily*</span>
+        </div>
+    </section>
 
-        <section id="postoffice" class="p-6 bg-white rounded-xl shadow-sm border-t-4 border-red-600 flex flex-col justify-between">
-            <div>
-                <h3 class="text-2xl font-bold mb-3 text-red-600">Post Office</h3>
-                <p class="text-gray-600 mb-4">Free cash withdrawals, everyday banking for major high-street banks, parcel drop-offs, and postal services.</p>
-            </div>
-            <span class="text-sm font-semibold text-red-800 bg-red-50 py-1 px-3 rounded-full self-start">Open Monday - Saturday</span>
-        </section>
-
-        <section id="fuels" class="p-6 bg-white rounded-xl shadow-sm border-t-4 border-blue-600 flex flex-col justify-between">
-            <div>
-                <h3 class="text-2xl font-bold mb-3 text-blue-600">Filling Station</h3>
-                <p class="text-gray-600 mb-4">Quality Esso Synergy fuels, Supreme+ 99, Calor Gas cylinder exchanges, and essential car care products.</p>
-            </div>
-            <span class="text-sm font-semibold text-blue-800 bg-blue-50 py-1 px-3 rounded-full self-start">Esso & Nectar Points</span>
-        </section>
-    </main>
-
-    <!-- Contact & Hours -->
-    <section id="contact" class="bg-emerald-800 text-white py-16">
+    <section id="contact" class="bg-brand text-white py-16">
         <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12">
             <div>
                 <h2 class="text-3xl font-bold mb-6">Visit Us in Uplyme</h2>
-                <address class="not-italic space-y-4 mb-8 block text-emerald-100">
-                    <p><strong>Address:</strong> Lyme Road, Uplyme, Lyme Regis, DT7 3UY</p>
-                    <p><strong>Phone:</strong> <a href="tel:01297444662" class="underline hover:text-white">01297 444 662</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:info@uplymestores.co.uk" class="underline hover:text-white">info@uplymestores.co.uk</a></p>
-                </address>
-                <div class="bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-                    <h4 class="font-bold mb-3 text-amber-400 text-lg">Store Opening Hours:</h4>
-                    <ul class="space-y-1 text-emerald-50">
-                        <li class="flex justify-between border-b border-white/10 py-1">
-                            <span>Mon - Fri</span>
-                            <strong>07:00 - 20:00</strong>
-                        </li>
-                        <li class="flex justify-between border-b border-white/10 py-1">
-                            <span>Saturday</span>
-                            <strong>07:30 - 20:00</strong>
-                        </li>
-                        <li class="flex justify-between border-b border-white/10 py-1">
-                            <span>Sunday</span>
-                            <strong>07:00 - 19:00</strong>
-                        </li>
-                    </ul>
+                <p class="mb-4"><strong>Address:</strong> Lyme Road, Uplyme, Lyme Regis, DT7 3UY</p>
+                <p class="mb-4"><strong>Phone:</strong> 01297 444 662</p>
+                <p class="mb-8"><strong>Email:</strong> info@uplymestores.co.uk</p>
+                <div class="bg-white/10 p-6 rounded-lg">
+                    <h4 class="font-bold mb-2">Store Opening Hours:</h4>
+                    <p>Mon - Fri: 07:00 - 20:00</p>
+                    <p>Saturday: 07:30 - 20:00</p>
+                    <p>Sunday: 07:00 - 19:00</p>
                 </div>
             </div>
-            <div class="bg-emerald-900/50 rounded-lg overflow-hidden min-h-[300px] shadow-inner relative flex flex-col items-center justify-center p-4 text-center">
-                <p class="font-semibold mb-2">Uplyme Stores & Filling Station</p>
-                <p class="text-sm text-emerald-200">Located on Lyme Road just outside Lyme Regis</p>
+            <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500 italic">
+                [Google Maps Embed Code Here]
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200">
-        &copy; 2026 Uplyme Stores & Filling Station. All rights reserved.
+    <footer class="py-8 text-center text-gray-500 text-sm">
+        &copy; 2024 Uplyme Stores & Filling Station. Supporting the local community.
     </footer>
 
 </body>
