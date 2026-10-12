@@ -1,0 +1,32 @@
+name: Update Daily Fuel Prices
+
+on:
+  schedule:
+    # 06:00 UTC corresponds to 07:00 BST (or adjust to 07:00 UTC for GMT winter time)
+    - cron: '0 6 * * *'
+  workflow_dispatch: # Allows running manually from the Actions tab anytime
+
+permissions:
+  contents: write
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Update HTML prices
+        run: node scripts/update-prices.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add fuel-finder.html
+          git diff-index --quiet HEAD || (git commit -m "chore: automated daily fuel price refresh" && git push)
