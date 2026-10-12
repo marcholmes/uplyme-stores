@@ -2,9 +2,9 @@ name: Update Daily Fuel Prices
 
 on:
   schedule:
-    # 06:00 UTC corresponds to 07:00 BST (or adjust to 07:00 UTC for GMT winter time)
+    # Runs at 06:00 UTC (07:00 BST in summer)
     - cron: '0 6 * * *'
-  workflow_dispatch: # Allows running manually from the Actions tab anytime
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -15,11 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
 
       - name: Update HTML prices
         run: node scripts/update-prices.js
