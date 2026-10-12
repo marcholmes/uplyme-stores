@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const pricesPath = path.join(__dirname, '../prices.json');
-const htmlPath = path.join(__dirname, '../fuel-finder.html');
+const htmlPath = path.join(__dirname, '../fuel-tracker.html');
 
 const prices = JSON.parse(fs.readFileSync(pricesPath, 'utf8'));
 let html = fs.readFileSync(htmlPath, 'utf8');
