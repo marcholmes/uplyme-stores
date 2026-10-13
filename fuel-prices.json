@@ -1,0 +1,22 @@
+{
+  "source": "UK Fuel Finder",
+  "fetched": "2026-10-13T07:30:00+01:00",
+  "radius_miles": 5,
+  "stations": [
+    {"name": "Uplyme Stores (Esso)", "town": "Uplyme", "miles": 0.0, "upos": true,
+     "e10": {"price": 173.9, "updated": "2026-10-01T10:51:12Z"},
+     "diesel": {"price": 199.9, "updated": "2026-09-25T07:53:59Z"}},
+    {"name": "Prospect Garage (TotalEnergies)", "town": "Axminster", "miles": 3.1,
+     "e10": {"price": 171.9, "updated": "2026-09-23T14:39:16Z"},
+     "diesel": {"price": 199.9, "updated": "2026-09-23T14:39:16Z"}},
+    {"name": "Musbury Garage (Murco)", "miles": 3.3,
+     "e10": {"price": 172.9, "updated": "2026-09-25T10:32:54Z"},
+     "diesel": {"price": 199.9, "updated": "2026-09-25T10:32:54Z"}},
+    {"name": "Tesco Axminster Superstore", "town": "Axminster", "miles": 3.6,
+     "e10": {"price": 171.9, "updated": "2026-09-24T13:40:44Z"},
+     "diesel": {"price": 199.9, "updated": "2026-09-28T15:45:46Z"}},
+    {"name": "MFG Kilmington Cross (Valero)", "town": "Axminster", "miles": 4.3,
+     "e10": {"price": 174.9, "updated": "2026-09-29T22:42:54Z"},
+     "diesel": {"price": 201.9, "updated": "2026-10-12T22:33:11Z"}}
+  ]
+}

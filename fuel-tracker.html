@@ -3,115 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST PAGE: Local Fuel Price Comparison Tracker</title>
+    <title>Local Fuel Prices | Uplyme Stores</title>
     <style>
         :root {
             --primary: #002f6c; /* Classic Esso Deep Blue */
             --accent: #d62328;  /* Post Office Red */
             --dark: #222222;
-            --light: #f8f9fa;
             --gold: #ffcc00;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
         body { color: var(--dark); background-color: #f1f5f9; line-height: 1.6; padding-bottom: 60px; }
-        
-        /* Testing Alert Ribbon */
-        .test-ribbon { background: #e11d48; color: white; text-align: center; padding: 8px 10px; font-size: 13px; font-weight: bold; letter-spacing: 0.5px; }
-        
-        /* Navigation Header with Image Support */
+
         header { background: var(--primary); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .logo img { height: 50px; width: auto; display: block; }
+        .logo { color: white; text-decoration: none; font-size: 22px; font-weight: 700; font-style: italic; }
         .back-link { color: var(--gold); text-decoration: none; font-weight: 600; font-size: 14px; }
         .back-link:hover { text-decoration: underline; }
 
-        /* Price Comparison Card Framework */
-        .price-comparison-section { padding: 60px 5% 20px; display: flex; justify-content: center; }
-        .comparison-card { background: #ffffff; width: 100%; max-width: 800px; padding: 40px 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
+        .price-comparison-section { padding: 40px 16px 20px; display: flex; justify-content: center; }
+        .comparison-card { background: #ffffff; width: 100%; max-width: 800px; padding: 32px 24px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; }
         .comparison-card h3 { color: var(--primary); font-size: 26px; margin-bottom: 8px; text-align: center; }
-        .comparison-subtitle { font-size: 15px; color: #64748b; text-align: center; margin-bottom: 30px; }
+        .comparison-subtitle { font-size: 15px; color: #64748b; text-align: center; margin-bottom: 24px; }
+        .comparison-card h4 { color: var(--primary); font-size: 19px; margin: 24px 0 10px; }
         .table-wrapper { overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 8px; }
-        
-        /* Table Elements */
-        .price-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; min-width: 500px; }
-        .price-table th { background-color: #f8fafc; color: #334155; padding: 14px 18px; font-weight: 700; border-bottom: 2px solid #e2e8f0; }
-        .price-table td { padding: 14px 18px; border-bottom: 1px solid #e2e8f0; color: #475569; }
-        .price-table tr:last-child td { border-bottom: none; }
-        
-        /* Visual Row Highlighting for Uplyme */
-        .price-table tr.highlight-row { background-color: rgba(0, 47, 108, 0.06); }
-        .price-table tr.highlight-row td { color: var(--primary); font-size: 16px; }
-        .table-footnote { font-size: 13px; color: #64748b; text-align: center; margin-top: 25px; font-style: italic; }
 
-        /* Support Local Callout Banner */
-        .support-banner-section { padding: 0 5% 40px; display: flex; justify-content: center; }
-        .support-banner { background: linear-gradient(135deg, var(--primary), #001f4d); color: white; width: 100%; max-width: 800px; padding: 35px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-left: 6px solid var(--gold); text-align: center; }
-        .support-banner h4 { font-size: 22px; color: var(--gold); margin-bottom: 12px; font-weight: 700; letter-spacing: 0.5px; }
-        .support-banner p { font-size: 15px; max-width: 680px; margin: 0 auto; opacity: 0.95; line-height: 1.6; }
+        .price-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 15px; }
+        .price-table th { background-color: #f8fafc; color: #334155; padding: 12px 14px; font-weight: 700; border-bottom: 2px solid #e2e8f0; }
+        .price-table td { padding: 12px 14px; border-bottom: 1px solid #e2e8f0; color: #475569; vertical-align: top; }
+        .price-table tr:last-child td { border-bottom: none; }
+        .price-table .num { text-align: right; white-space: nowrap; }
+        .price-table .town { display: block; font-size: 13px; color: #94a3b8; }
+
+        @media (max-width: 520px) {
+            .comparison-card { padding: 24px 12px; }
+            .price-table { font-size: 14px; }
+            .price-table th, .price-table td { padding: 10px 6px; }
+        }
+
+        .price-table tr.highlight-row { background-color: rgba(0, 47, 108, 0.06); }
+        .price-table tr.highlight-row td { color: var(--primary); font-weight: 700; }
+        .table-footnote { font-size: 13px; color: #64748b; margin-top: 24px; }
+        .table-footnote p + p { margin-top: 8px; }
+
+        .support-banner-section { padding: 0 16px 40px; display: flex; justify-content: center; }
+        .support-banner { background: linear-gradient(135deg, var(--primary), #0b4a9e); color: white; width: 100%; max-width: 800px; padding: 28px 24px; border-radius: 12px; }
+        .support-banner h4 { font-size: 20px; margin-bottom: 8px; color: var(--gold); }
     </style>
 </head>
 <body>
 
-    <!-- Environment Notice -->
-    <div class="test-ribbon">🛠️ LIVE DEVELOPMENT PREVIEW PAGE — INTERNAL TESTING</div>
-
-    <!-- Layout Header Context -->
     <header>
-        <div class="logo">
-            <a href="index.html"><img src="logo.png" alt="Uplyme Stores Logo"></a>
-        </div>
+        <a href="index.html" class="logo">Uplyme Stores</a>
         <a href="index.html" class="back-link">← Return to Homepage</a>
     </header>
 
-    <!-- Price Table Module -->
     <section class="price-comparison-section">
         <div class="comparison-card">
-            <h3>📊 Local Fuel Price Tracker</h3>
-            <p class="comparison-subtitle">Cross-referencing regional retail metrics directly across our closest local competitors.</p>
-            
+            <h3>⛽ Local Fuel Prices</h3>
+            <p class="comparison-subtitle" id="subtitle">Every filling station within 5 miles of Uplyme Stores, as published on the government's Fuel Finder service.</p>
+
+            <h4>Unleaded (E10)</h4>
             <div class="table-wrapper">
                 <table class="price-table">
-                    <thead>
-                        <tr>
-                            <th>Station / Location</th>
-                            <th>Unleaded (E10)</th>
-                            <th>Standard Diesel</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="highlight-row">
-                            <td><strong>📍 Uplyme Stores & Filling Station</strong></td>
-                            <td><strong>163.9p</strong></td>
-                            <td><strong>179.9p</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Tesco (Shand Park, Axminster)</td>
-                            <td>161.9p</td>
-                            <td>178.9p</td>
-                        </tr>
-                        <tr>
-                            <td>TotalEnergies (Prospect, Axminster)</td>
-                            <td>161.9p</td>
-                            <td>178.9p</td>
-                        </tr>
-                        <tr>
-                            <td>Texaco (MFG Kilmington Cross)</td>
-                            <td>161.9p</td>
-                            <td>179.9p</td>
-                        </tr>
-                    </tbody>
+                    <thead><tr><th>Station</th><th class="num">Miles</th><th class="num">Price</th><th class="num">Updated</th></tr></thead>
+                    <tbody id="e10"><tr><td colspan="4">Loading prices…</td></tr></tbody>
                 </table>
             </div>
-            <p class="table-footnote">💡 Prices are updated manually for verification. Layout is optimized for phone viewports.</p>
+
+            <h4>Diesel</h4>
+            <div class="table-wrapper">
+                <table class="price-table">
+                    <thead><tr><th>Station</th><th class="num">Miles</th><th class="num">Price</th><th class="num">Updated</th></tr></thead>
+                    <tbody id="diesel"><tr><td colspan="4">Loading prices…</td></tr></tbody>
+                </table>
+            </div>
+
+            <div class="table-footnote">
+                <p id="checked">Source: UK Fuel Finder.</p>
+                <p>Prices are shown exactly as each station reported them to Fuel Finder, in pence per litre, lowest first. A station's price may have changed since its "updated" date, so please check the price at the pump. Distances are straight-line from Uplyme Stores.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Support Local Callout Banner -->
     <section class="support-banner-section">
         <div class="support-banner">
             <h4>❤️ Why Choose Independent?</h4>
             <p>Your support and every penny spent at Uplyme Stores allows us to maintain vital local services and ensures the Uplyme Post Office counter remains open for everyone. Thank you for shopping locally!</p>
         </div>
     </section>
+
+    <script>
+        const fmtDate = iso => new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'Europe/London' });
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+        function fill(id, stations, fuel) {
+            const rows = stations.filter(s => s[fuel] && s[fuel].price != null)
+                .sort((a, b) => a[fuel].price - b[fuel].price || a.miles - b.miles);
+            document.getElementById(id).innerHTML = rows.map(s => `
+                <tr${s.upos ? ' class="highlight-row"' : ''}>
+                    <td>${esc(s.name)}${s.town ? `<span class="town">${esc(s.town)}</span>` : ''}</td>
+                    <td class="num">${s.miles.toFixed(1)}</td>
+                    <td class="num">${s[fuel].price.toFixed(1)}p</td>
+                    <td class="num">${fmtDate(s[fuel].updated)}</td>
+                </tr>`).join('') || '<tr><td colspan="4">No prices listed.</td></tr>';
+        }
+
+        fetch('fuel-prices.json', { cache: 'no-store' })
+            .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+            .then(data => {
+                fill('e10', data.stations, 'e10');
+                fill('diesel', data.stations, 'diesel');
+                const when = new Date(data.fetched).toLocaleString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/London' });
+                document.getElementById('checked').textContent = `Source: UK Fuel Finder, checked ${when}.`;
+            })
+            .catch(() => {
+                const msg = '<tr><td colspan="4">Prices are not available right now.</td></tr>';
+                document.getElementById('e10').innerHTML = msg;
+                document.getElementById('diesel').innerHTML = msg;
+            });
+    </script>
 
 </body>
 </html>
